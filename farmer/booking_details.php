@@ -94,10 +94,26 @@ require_once __DIR__ . '/../includes/header.php';
           <span>Total Rental Days:</span>
           <span>&times; <?php echo $booking['days']; ?></span>
         </div>
-        <div class="summary-row summary-total">
-          <span>Total Payable Amount:</span>
-          <span style="color: var(--primary);">₹ <?php echo number_format($booking['total_amount'], 2); ?></span>
+        <div class="summary-row" style="border-top: 1px solid var(--border-color); padding-top: 0.5rem; margin-top: 0.5rem;">
+          <span>Payment Method:</span>
+          <strong><?php echo htmlspecialchars($booking['payment_method'] ?? 'Cash on Delivery'); ?></strong>
         </div>
+        <div class="summary-row">
+          <span>Payment Status:</span>
+          <strong>
+            <?php if (($booking['payment_status'] ?? 'Pending') === 'Paid'): ?>
+              <span class="status-pill status-completed" style="font-size: 0.75rem;">PAID</span>
+            <?php else: ?>
+              <span class="status-pill status-pending" style="font-size: 0.75rem;">DUE ON HANDOVER</span>
+            <?php endif; ?>
+          </strong>
+        </div>
+        <?php if (!empty($booking['transaction_id'])): ?>
+          <div class="summary-row">
+            <span>UTR / Ref No:</span>
+            <code><?php echo htmlspecialchars($booking['transaction_id']); ?></code>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
 

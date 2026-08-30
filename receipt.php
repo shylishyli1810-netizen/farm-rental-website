@@ -487,8 +487,24 @@ $whatsapp_text = urlencode(
       </tbody>
     </table>
 
-    <!-- TOTALS -->
-    <div class="total-section">
+    <!-- TOTALS & PAYMENT DETAILS -->
+    <div class="total-section" style="justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="background: #f8faf7; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; flex: 1; min-width: 260px;">
+        <h4 style="font-size: 0.85rem; color: var(--primary-dark); text-transform: uppercase; margin-bottom: 0.5rem;"><i class="fas fa-wallet"></i> Payment Summary (கட்டண விவரம்)</h4>
+        <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>Mode:</strong> <?php echo htmlspecialchars($booking['payment_method'] ?? 'Cash on Delivery'); ?></p>
+        <p style="font-size: 0.9rem; margin-bottom: 0.3rem;">
+          <strong>Status:</strong> 
+          <?php if (($booking['payment_status'] ?? 'Pending') === 'Paid'): ?>
+            <span style="background: #dcfce7; color: #15803d; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; font-size: 0.8rem;"><i class="fas fa-check-circle"></i> PAID</span>
+          <?php else: ?>
+            <span style="background: #fef3c7; color: #b45309; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; font-size: 0.8rem;"><i class="fas fa-clock"></i> DUE ON HANDOVER</span>
+          <?php endif; ?>
+        </p>
+        <?php if (!empty($booking['transaction_id'])): ?>
+          <p style="font-size: 0.85rem; color: var(--text-muted);"><strong>Ref / UTR No:</strong> <?php echo htmlspecialchars($booking['transaction_id']); ?></p>
+        <?php endif; ?>
+      </div>
+
       <div class="total-box">
         <div class="total-row">
           <span>Subtotal (₹ <?php echo number_format($booking['price_per_day'], 2); ?> &times; <?php echo $booking['days']; ?> d):</span>

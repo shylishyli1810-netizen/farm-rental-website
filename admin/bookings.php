@@ -123,7 +123,15 @@ require_once __DIR__ . '/../includes/header.php';
                   </td>
                   <td><small><?php echo date('d M Y', strtotime($b['start_date'])); ?><br>&rarr; <?php echo date('d M Y', strtotime($b['end_date'])); ?></small></td>
                   <td><?php echo $b['days']; ?>d</td>
-                  <td><strong>₹ <?php echo number_format($b['total_amount'], 2); ?></strong></td>
+                  <td>
+                    <strong>₹ <?php echo number_format($b['total_amount'], 2); ?></strong><br>
+                    <small style="color: var(--text-muted); font-size: 0.75rem;"><?php echo htmlspecialchars($b['payment_method'] ?? 'Cash'); ?></small>
+                    <?php if (($b['payment_status'] ?? 'Pending') === 'Paid'): ?>
+                      <span style="color: #16a34a; font-size: 0.7rem; font-weight: 700; display: block;"><i class="fas fa-check"></i> Paid</span>
+                    <?php else: ?>
+                      <span style="color: #d97706; font-size: 0.7rem; font-weight: 700; display: block;"><i class="fas fa-clock"></i> Cash Due</span>
+                    <?php endif; ?>
+                  </td>
                   <td>
                     <?php 
                       $st = $b['status'];
