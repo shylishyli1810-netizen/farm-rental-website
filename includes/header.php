@@ -22,7 +22,7 @@ $base_path = strpos($script_name, '/farmer/') !== false || strpos($script_name, 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="<?php echo $base_path; ?>css/style.css">
+  <link rel="stylesheet" href="<?php echo $base_path; ?>css/style.css?v=3">
 </head>
 <body>
 
@@ -42,6 +42,8 @@ $base_path = strpos($script_name, '/farmer/') !== false || strpos($script_name, 
       <li><a href="<?php echo $base_path; ?>about.php" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a></li>
       <li><a href="<?php echo $base_path; ?>equipment.php" class="nav-link"><i class="fas fa-tools"></i> Equipment</a></li>
       <li><a href="<?php echo $base_path; ?>contact.php" class="nav-link"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li><a href="#" id="cartToggleBtn" class="nav-link" style="cursor: pointer;"><i class="fas fa-shopping-cart"></i> Cart <span id="cartBadge" class="cart-badge">0</span></a></li>
+
 
       <?php if (isFarmerLoggedIn()): ?>
         <li><a href="<?php echo $base_path; ?>farmer/dashboard.php" class="nav-link"><i class="fas fa-tachometer-alt"></i> Farmer Portal</a></li>

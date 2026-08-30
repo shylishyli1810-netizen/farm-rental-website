@@ -35,9 +35,9 @@
 
       <div class="footer-col">
         <h4>Contact & Support</h4>
-        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> Agri Hub, Main Market, Karnal, Haryana</p>
-        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fas fa-phone-alt" style="color: var(--accent-gold);"></i> +91 1800-123-4567 (Toll Free)</p>
-        <p style="font-size: 0.9rem;"><i class="fas fa-envelope" style="color: var(--accent-gold);"></i> support@farmtoolsrental.com</p>
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> Anna Salai, Guindy, Chennai, Tamil Nadu</p>
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fas fa-phone-alt" style="color: var(--accent-gold);"></i> +91 81228 44191</p>
+        <p style="font-size: 0.9rem;"><i class="fas fa-envelope" style="color: var(--accent-gold);"></i> shylishyli1810@gmail.com</p>
       </div>
     </div>
 
@@ -47,6 +47,37 @@
   </div>
 </footer>
 
+<!-- SHOPPING CART MODAL / DRAWER -->
+<div id="cartModal" class="cart-modal" aria-hidden="true">
+  <div class="cart-modal-overlay" id="cartOverlay"></div>
+  <div class="cart-modal-content">
+    <div class="cart-modal-header">
+      <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+      <button type="button" id="closeCartBtn" class="cart-close-btn" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-modal-body" id="cartItemsContainer">
+      <!-- Items dynamically injected by JavaScript -->
+    </div>
+    <div class="cart-modal-footer">
+      <div class="cart-total-row">
+        <span>Total Daily Rate:</span>
+        <strong id="cartTotalPrice">₹ 0.00</strong>
+      </div>
+      <div class="cart-actions">
+        <button type="button" id="clearCartBtn" class="btn btn-outline-dark btn-sm"><i class="fas fa-trash-alt"></i> Clear Cart</button>
+        <button type="button" id="closeCartFooterBtn" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART TOAST NOTIFICATION -->
+<div id="cartToast" class="cart-toast" role="alert">
+  <i class="fas fa-check-circle" style="color: var(--success); font-size: 1.2rem;"></i>
+  <span id="cartToastMsg">Item added to cart!</span>
+</div>
+
 <script src="<?php echo $base_path; ?>js/script.js"></script>
+
 </body>
 </html>

@@ -81,10 +81,12 @@ try {
               
               <?php if ($item['availability'] === 'Available'): ?>
                 <a href="farmer/book.php?id=<?php echo $item['id']; ?>" class="btn btn-primary btn-sm"><i class="fas fa-calendar-plus"></i> Book Now</a>
+                <button type="button" class="btn btn-primary btn-sm add-to-cart-btn" data-id="<?php echo $item['id']; ?>" data-name="<?php echo htmlspecialchars($item['name']); ?>" data-price="<?php echo $item['price_per_day']; ?>" data-image="<?php echo htmlspecialchars($item['image']); ?>"><i class="fas fa-cart-plus"></i> Add to Cart</button>
               <?php else: ?>
                 <button class="btn btn-outline-dark btn-sm" disabled style="opacity: 0.6; cursor: not-allowed;"><i class="fas fa-ban"></i> Unavailable</button>
               <?php endif; ?>
             </div>
+
           </div>
         </div>
       <?php endforeach; ?>

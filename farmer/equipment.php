@@ -96,6 +96,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <a href="equipment_details.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-dark btn-sm"><i class="fas fa-info-circle"></i> Details</a>
                 <?php if ($item['availability'] === 'Available'): ?>
                   <a href="book.php?id=<?php echo $item['id']; ?>" class="btn btn-primary btn-sm"><i class="fas fa-calendar-plus"></i> Book</a>
+                  <button type="button" class="btn btn-primary btn-sm add-to-cart-btn" data-id="<?php echo $item['id']; ?>" data-name="<?php echo htmlspecialchars($item['name']); ?>" data-price="<?php echo $item['price_per_day']; ?>" data-image="<?php echo htmlspecialchars($item['image']); ?>"><i class="fas fa-cart-plus"></i> Add to Cart</button>
                 <?php else: ?>
                   <button class="btn btn-outline-dark btn-sm" disabled style="opacity: 0.5;"><i class="fas fa-ban"></i> N/A</button>
                 <?php endif; ?>

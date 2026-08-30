@@ -31,19 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="feature-card" style="text-align: left; padding: 1.5rem;">
         <div class="feature-icon" style="margin: 0 0 1rem 0; width: 48px; height: 48px; font-size: 1.25rem;"><i class="fas fa-map-marker-alt"></i></div>
         <h3 class="feature-title" style="font-size: 1.1rem;">Main Hub Address</h3>
-        <p class="feature-desc">Kisan Vikas Bhavan, GT Road, Near Agriculture Mandi, Karnal, Haryana - 132001</p>
+        <p class="feature-desc">Anna Salai, Guindy, Chennai, Tamil Nadu - 600032</p>
       </div>
 
       <div class="feature-card" style="text-align: left; padding: 1.5rem;">
         <div class="feature-icon" style="margin: 0 0 1rem 0; width: 48px; height: 48px; font-size: 1.25rem;"><i class="fas fa-phone-alt"></i></div>
-        <h3 class="feature-title" style="font-size: 1.1rem;">Toll-Free Helpline</h3>
-        <p class="feature-desc">+91 1800-123-4567<br><small style="color: var(--text-muted);">Mon - Sat: 7:00 AM - 8:00 PM</small></p>
+        <h3 class="feature-title" style="font-size: 1.1rem;">Customer Helpline</h3>
+        <p class="feature-desc">+91 81228 44191<br><small style="color: var(--text-muted);">Mon - Sat: 7:00 AM - 8:00 PM</small></p>
       </div>
 
       <div class="feature-card" style="text-align: left; padding: 1.5rem;">
         <div class="feature-icon" style="margin: 0 0 1rem 0; width: 48px; height: 48px; font-size: 1.25rem;"><i class="fas fa-envelope"></i></div>
         <h3 class="feature-title" style="font-size: 1.1rem;">Email Support</h3>
-        <p class="feature-desc">support@farmtoolsrental.com<br>info@farmtoolsrental.com</p>
+        <p class="feature-desc">shylishyli1810@gmail.com</p>
       </div>
     </div>
 

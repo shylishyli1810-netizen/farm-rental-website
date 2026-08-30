@@ -58,7 +58,9 @@ try {
               <div class="equipment-footer">
                 <a href="farmer/equipment_details.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-dark btn-sm"><i class="fas fa-eye"></i> Details</a>
                 <a href="farmer/book.php?id=<?php echo $item['id']; ?>" class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart"></i> Book Now</a>
+                <button type="button" class="btn btn-primary btn-sm add-to-cart-btn" data-id="<?php echo $item['id']; ?>" data-name="<?php echo htmlspecialchars($item['name']); ?>" data-price="<?php echo $item['price_per_day']; ?>" data-image="<?php echo htmlspecialchars($item['image']); ?>"><i class="fas fa-cart-plus"></i> Add to Cart</button>
               </div>
+
             </div>
           </div>
         <?php endforeach; ?>
