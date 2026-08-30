@@ -77,7 +77,7 @@
   <span id="cartToastMsg">Item added to cart!</span>
 </div>
 
-<script src="<?php echo $base_path; ?>js/script.js"></script>
+<script src="<?php echo $base_path; ?>js/script.js?v=2"></script>
 
 </body>
 </html>

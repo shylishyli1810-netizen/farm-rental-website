@@ -22,13 +22,34 @@ function saveCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
+function getCartImageUrl(imgName) {
+  if (!imgName || imgName === 'null' || imgName === 'undefined' || imgName === '') {
+    imgName = 'default_equipment.jpg';
+  }
+  // Strip any leading slashes or prefixes like ../ or images/equipment/
+  const cleanName = imgName.replace(/^(\.\.\/)+/, '').replace(/^images\/equipment\//, '').replace(/^\/+/, '');
+  
+  // Detect if current page is inside /farmer/ or /admin/ subfolder
+  const path = window.location.pathname;
+  const isSubFolder = path.includes('/farmer/') || path.includes('/admin/');
+  const prefix = isSubFolder ? '../images/equipment/' : 'images/equipment/';
+  
+  return prefix + cleanName;
+}
+
 function addToCart(id, name, price, image) {
   const cart = getCart();
   const existing = cart.find(item => item.id === id);
+  // Clean image name
+  const cleanImage = image ? image.replace(/^(\.\.\/)+/, '').replace(/^images\/equipment\//, '').replace(/^\/+/, '') : 'default_equipment.jpg';
+  
   if (existing) {
     existing.qty += 1;
+    if (!existing.image || existing.image === 'default_equipment.jpg') {
+      existing.image = cleanImage;
+    }
   } else {
-    cart.push({ id, name, price: parseFloat(price), image, qty: 1 });
+    cart.push({ id, name, price: parseFloat(price), image: cleanImage, qty: 1 });
   }
   saveCart(cart);
   updateCartBadge();
@@ -91,15 +112,13 @@ function renderCartItems() {
   cart.forEach(item => {
     const subtotal = item.price * item.qty;
     grandTotal += subtotal;
-    // Resolve image path: farmer portal uses ../ prefix, others use images/
-    const imgSrc = item.image
-      ? `images/equipment/${item.image}`
-      : 'images/equipment/default_equipment.jpg';
+    const imgSrc = getCartImageUrl(item.image);
+    const fallbackSrc = getCartImageUrl('default_equipment.jpg');
 
     html += `
       <div class="cart-item" data-cart-id="${item.id}">
         <img src="${imgSrc}" alt="${item.name}" class="cart-item-img"
-             onerror="this.src='images/equipment/default_equipment.jpg'">
+             onerror="this.onerror=null; this.src='${fallbackSrc}'">
         <div class="cart-item-info">
           <div class="cart-item-title">${item.name}</div>
           <div class="cart-item-price">₹ ${item.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })} / day</div>
