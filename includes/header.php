@@ -22,7 +22,7 @@ $base_path = strpos($script_name, '/farmer/') !== false || strpos($script_name, 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="<?php echo $base_path; ?>css/style.css?v=3">
+  <link rel="stylesheet" href="<?php echo $base_path; ?>css/style.css?v=4">
 </head>
 <body>
 
