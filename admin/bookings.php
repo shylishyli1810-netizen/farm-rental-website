@@ -133,6 +133,8 @@ require_once __DIR__ . '/../includes/header.php';
                   </td>
                   <td>
                     <div style="display: flex; gap: 0.35rem; flex-wrap: wrap;">
+                      <a href="../receipt.php?id=<?php echo $b['id']; ?>" class="btn btn-outline-dark btn-sm" target="_blank" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;" title="View &amp; Print Handover Letter"><i class="fas fa-print"></i> Slip</a>
+
                       <?php if ($b['status'] !== 'Approved'): ?>
                         <a href="update_booking_status.php?id=<?php echo $b['id']; ?>&status=Approved" class="btn btn-primary btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;" title="Approve Booking"><i class="fas fa-check"></i> Approve</a>
                       <?php endif; ?>

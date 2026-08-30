@@ -38,7 +38,8 @@ require_once __DIR__ . '/../includes/header.php';
       <a href="bookings.php" class="btn btn-outline-dark btn-sm" style="margin-bottom: 0.5rem;"><i class="fas fa-arrow-left"></i> Back to My Bookings</a>
       <h1 class="page-title"><i class="fas fa-receipt"></i> Booking #BK-<?php echo str_pad($booking['id'], 4, '0', STR_PAD_LEFT); ?></h1>
     </div>
-    <div>
+    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+      <a href="../receipt.php?id=<?php echo $booking['id']; ?>" class="btn btn-primary" target="_blank" style="padding: 0.5rem 1.25rem;"><i class="fas fa-file-invoice"></i> View &amp; Print Receipt Letter</a>
       <?php 
         $st = $booking['status'];
         $cls = strtolower($st);

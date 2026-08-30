@@ -100,7 +100,10 @@ require_once __DIR__ . '/../includes/header.php';
                     ?>
                   </td>
                   <td>
-                    <a href="booking_details.php?id=<?php echo $b['id']; ?>" class="btn btn-outline-dark btn-sm"><i class="fas fa-eye"></i> Details</a>
+                    <div style="display: flex; gap: 0.35rem; flex-wrap: wrap;">
+                      <a href="booking_details.php?id=<?php echo $b['id']; ?>" class="btn btn-outline-dark btn-sm"><i class="fas fa-eye"></i> Details</a>
+                      <a href="../receipt.php?id=<?php echo $b['id']; ?>" class="btn btn-primary btn-sm" target="_blank" title="Print Rental Letter / Slip"><i class="fas fa-print"></i> Slip</a>
+                    </div>
                   </td>
                 </tr>
               <?php endforeach; ?>
